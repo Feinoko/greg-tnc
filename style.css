@@ -12,11 +12,11 @@ Text Domain: kadence
 
 /* .icone-finalités-1, .icone-finalités-2, .icone-finalités-3, .icone-finalités-4 { */
 .icones-finalités {
-  transition: transform 1s ease-in-out;
+  transition: transform 2s ease-in-out, opacity 2s ease-in-out;
 }
 
 .temp-shine {
-  animation: temp-shine 1.5s ease-in-out 1 forwards;
+  animation: temp-shine 3s ease-in-out 1 forwards;
 }
 
 @keyframes temp-shine {
@@ -25,15 +25,19 @@ Text Domain: kadence
   }
 
   40% {
-    fill: rgb(255, 251, 142);
+    fill: rgb(255, 254, 225);
   }
 
-  60% {
-    fill: rgb(255, 251, 142);
+  75% {
+    fill: rgb(255, 254, 225);
   }
 
   100% {
     fill: var(--global-palette1);
   }
+
+}
+
+.appear {
 
 }

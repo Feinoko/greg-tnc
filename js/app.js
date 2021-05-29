@@ -18,11 +18,6 @@ const icon4_EL = document.querySelector('.icone-finalités-4');
 const iconsFinalités_EL = document.querySelectorAll('.icones-finalités');
 let rotationAngle = 0; // will be incremented on each iteration 
 
-// variable for shine effect
-const iconPaths_EL = document.querySelectorAll('.icones-finalités path');
-
-
-
 let cb = (entries, observer) => {
   entries.forEach(entry => {
     if(entry.isIntersecting) {
@@ -36,10 +31,11 @@ let cb = (entries, observer) => {
       })
 
       // handle shine
+      const iconPaths_EL = document.querySelectorAll('.icones-finalités path');
       iconPaths_EL.forEach((path) => {
+        // path.classList.add('temp-shine');
         path.classList.add('temp-shine');
       })
-
     };
   });
 }
