@@ -38,6 +38,14 @@ Text Domain: kadence
 
 }
 
-.appear {
-
+/* set initial state of sections that will fadein & slide (via JS) */
+.section-finalités .wp-block-kadence-column {
+  transition: transform 2s ease-in-out, opacity 2s ease-in-out;
+  transform: translateY(-15px);
 }
+
+/* ... and add relevant class */
+/* .icon-appear {
+  opacity: 1;
+  transform: translateY(0);
+} */

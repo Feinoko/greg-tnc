@@ -18,10 +18,21 @@ const icon4_EL = document.querySelector('.icone-finalités-4');
 const iconsFinalités_EL = document.querySelectorAll('.icones-finalités');
 let rotationAngle = 0; // will be incremented on each iteration 
 
+// set sections opacity to 0 for the fade effect
+const iconSvgs_EL = document.querySelectorAll('.section-finalités .wp-block-kadence-column');
+iconSvgs_EL.forEach((svg) => {
+  svg.style.opacity = '0';
+})
+
+// trigger intersection only once
+let hasIntersected = false;
+
 let cb = (entries, observer) => {
   entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      
+    if (entry.isIntersecting && !hasIntersected) {
+
+      hasIntersected = true;
+
       // handle rotation
       iconsFinalités_EL.forEach((icon) => {
         console.log(icon);
@@ -33,9 +44,15 @@ let cb = (entries, observer) => {
       // handle shine
       const iconPaths_EL = document.querySelectorAll('.icones-finalités path');
       iconPaths_EL.forEach((path) => {
-        // path.classList.add('temp-shine');
         path.classList.add('temp-shine');
       })
+
+      // handle fade & slide
+      iconSvgs_EL.forEach((svg) => {
+        svg.style.opacity = '1';
+        svg.style.transform = 'translateY(0)';
+      })
+
     };
   });
 }
@@ -43,7 +60,7 @@ let cb = (entries, observer) => {
 let options = {
   root: null,
   rootMargin: '0px',
-  threshold: 1.0
+  threshold: 0.1
 }
 
 let observer = new IntersectionObserver(cb, options);
