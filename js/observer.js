@@ -62,7 +62,7 @@ class ObserverAnimations {
 
     let observer_finalites = new IntersectionObserver(this.cb_finalites, options);
 
-    observer_finalites.observe(finalités_EL);
+    observer_finalites.observe(this.finalites_EL);
 
   }
 }

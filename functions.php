@@ -17,3 +17,17 @@ function js_assets() {
 }
 
 add_action('wp_enqueue_scripts', 'js_assets');
+
+
+
+/* adding module type to app script to enable modularity */
+/* see https://stackoverflow.com/questions/56603862/how-does-the-script-loader-tag-function-works */
+
+function add_async_defer($tag, $handle) {
+
+  if('app' !== $handle) {
+      return $tag;
+  }
+  return str_replace(' src', ' type="module" src', $tag);
+}
+add_filter('script_loader_tag', 'add_async_defer', 10, 2);
