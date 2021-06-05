@@ -5,7 +5,7 @@ class ObserverAnimations {
     this.finalites_EL = document.querySelector('.section-finalités');
     this.iconsFinalités_EL = document.querySelectorAll('.icones-finalités');
     this.hasIntersectedFinalites = false;
-    this.initiateObserver.call(this);
+    this.initiateObserver();
     console.log('observer object called');
   }
 
@@ -14,6 +14,7 @@ class ObserverAnimations {
   cb_finalites(entries, observer) {
 
     console.log(`this inside callback : ${this} `);
+    console.log(this);
 
     /* Description : on scrolling to the finalités section, trigger animation on icones: add a rotation where each icon rotate a quarter turn more than the previous, and a temporary shine */
 
@@ -23,6 +24,8 @@ class ObserverAnimations {
       svg.style.opacity = '0';
     })
 
+    console.log('entries');
+    console.log(entries);
     entries.forEach(entry => {
       if (entry.isIntersecting && !this.hasIntersectedFinalites) {
 
@@ -64,7 +67,8 @@ class ObserverAnimations {
       threshold: 0.1
     }
 
-    let observer_finalites = new IntersectionObserver(this.cb_finalites, options);
+    // using bind(this) so that 'this' remains the ObserverAnimations class, and does not become the IntersectionObserver class in the callback
+    let observer_finalites = new IntersectionObserver(this.cb_finalites.bind(this), options);
 
     observer_finalites.observe(this.finalites_EL);
 
