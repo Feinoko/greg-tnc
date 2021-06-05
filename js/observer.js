@@ -5,13 +5,15 @@ class ObserverAnimations {
     this.finalites_EL = document.querySelector('.section-finalités');
     this.iconsFinalités_EL = document.querySelectorAll('.icones-finalités');
     this.hasIntersectedFinalites = false;
-    this.initiateObserver();
+    this.initiateObserver.call(this);
     console.log('observer object called');
   }
 
   // 2. callbacks
 
   cb_finalites(entries, observer) {
+
+    console.log(`this inside callback : ${this} `);
 
     /* Description : on scrolling to the finalités section, trigger animation on icones: add a rotation where each icon rotate a quarter turn more than the previous, and a temporary shine */
 
@@ -22,13 +24,15 @@ class ObserverAnimations {
     })
 
     entries.forEach(entry => {
-      if (entry.isIntersecting && !hasIntersected) {
+      if (entry.isIntersecting && !this.hasIntersectedFinalites) {
 
         this.hasIntersectedFinalites = true;
         let rotationAngle = 0;
 
         // handle rotation
-        iconsFinalités_EL.forEach((icon) => {
+        // this.iconsFinalités_EL = document.querySelectorAll('.icones-finalités');
+        console.log(this.iconsFinalités_EL);
+        this.iconsFinalités_EL.forEach((icon) => {
           console.log(icon);
           icon.style.transform = `rotate(${rotationAngle}turn)`;
           rotationAngle -= .25; // increment a quarter turn (anti-clockwise) each time
@@ -47,7 +51,7 @@ class ObserverAnimations {
           svg.style.transform = 'translateY(0)';
         })
       };
-    });
+    }, this);
   }
 
   // 3. initiate observer
