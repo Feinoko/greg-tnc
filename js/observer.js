@@ -11,7 +11,7 @@ class ObserverAnimations {
   // 2. callbacks
 
   cb_finalites(entries, observer) {
-
+    
     /* Description : on scrolling to the finalités section, trigger animation on icones: add a rotation where each icon rotate a quarter turn more than the previous, and a temporary shine */
 
     entries.forEach(entry => {
@@ -68,6 +68,7 @@ class ObserverAnimations {
       threshold: 0.1
     }
 
+
     // using bind(this) so that 'this' remains the ObserverAnimations class, and does not become the IntersectionObserver class in the callback
     let observer_finalites = new IntersectionObserver(this.cb_finalites.bind(this), options);
 
@@ -77,3 +78,4 @@ class ObserverAnimations {
 }
 
 export default ObserverAnimations;
+
