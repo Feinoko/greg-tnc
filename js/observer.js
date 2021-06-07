@@ -13,6 +13,7 @@ class ObserverAnimations {
 
   cb_finalites(entries, observer) {
 
+    // debugging "this" issue. To be removed
     console.log(`this inside callback : ${this} `);
     console.log(this);
 
