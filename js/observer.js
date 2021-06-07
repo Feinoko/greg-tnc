@@ -12,16 +12,8 @@ class ObserverAnimations {
 
   cb_finalites(entries, observer) {
 
-    // debugging "this" issue. To be removed
-    // console.log(`this inside callback : ${this} `);
-    // console.log(this);
-
     /* Description : on scrolling to the finalités section, trigger animation on icones: add a rotation where each icon rotate a quarter turn more than the previous, and a temporary shine */
 
-
-
-    // console.log('entries');
-    // console.log(entries);
     entries.forEach(entry => {
 
       // get relevant elements
@@ -41,13 +33,9 @@ class ObserverAnimations {
         let rotationAngle = 0;
 
         // handle rotation
-        // this.iconsFinalités_EL = document.querySelectorAll('.icones-finalités');
-        // console.log(this.iconsFinalités_EL);
         this.iconsFinalités_EL.forEach((icon) => {
-          // console.log(icon);
           icon.style.transform = `rotate(${rotationAngle}turn)`;
           rotationAngle -= .25; // increment a quarter turn (anti-clockwise) each time
-          // console.log(`rotationAngle value = ${rotationAngle}`);
           console.log('applied rotation');
         })
 
