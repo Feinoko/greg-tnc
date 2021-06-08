@@ -44,8 +44,24 @@ Text Domain: kadence
   transform: translateY(-15px);
 }
 
-/* ... and add relevant class */
-/* .icon-appear {
-  opacity: 1;
-  transform: translateY(0);
-} */
+/** Témoignages **/
+
+/* dots adjustments */
+
+/* remove left padding */
+.single-content ul.slick-dots {
+  padding-left: 0;
+}
+/* remove box-shadow */
+.slick-dots button {
+  box-shadow: unset;
+}
+
+/* arrow adjustments */
+
+/* remove outline bg */
+.slick-next.slick-arrow:hover, .slick-prev.slick-arrow:hover, .slick-next.slick-arrow, .slick-prev.slick-arrow {
+  background: unset;
+  background-color: unset;
+  box-shadow: unset;
+}
